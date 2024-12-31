@@ -30,7 +30,7 @@ public class ConnectionListener implements Listener {
 
     public ConnectionListener(VEconomy plugin) {
         this.plugin = plugin;
-        this.repository = plugin.getDatabaseService().create(EconomyUser.class, UUID.class);
+        this.repository = (Repository<EconomyUser, UUID>) plugin.getDatabaseService().getRepository(EconomyUser.class);
     }
 
     @EventHandler

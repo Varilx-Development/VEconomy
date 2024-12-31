@@ -29,7 +29,7 @@ public class CustomEconomy implements Economy {
 
     public CustomEconomy(VEconomy plugin) {
         this.plugin = plugin;
-        this.repository = plugin.getDatabaseService().create(EconomyUser.class, UUID.class);
+        this.repository = (Repository<EconomyUser, UUID>) plugin.getDatabaseService().getRepository(EconomyUser.class);
     }
 
     @Override
