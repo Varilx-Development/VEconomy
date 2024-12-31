@@ -37,7 +37,15 @@ public class ConnectionListener implements Listener {
     public void onLogin(PlayerLoginEvent event) {
         Player player = event.getPlayer();
         repository.exists(player.getUniqueId()).thenAccept(exists -> {
-           if(exists) return;
+           if(exists) {
+               repository.findFirstById(player.getUniqueId()).thenAccept(user -> {
+                  if(!user.getName().contentEquals(player.getName())) {
+                      user.setName(player.getName());
+                      repository.save(user);
+                  }
+               });
+               return;
+           }
 
            EconomyUser user = new EconomyUser();
            user.setBalance(BaseAPI.getBaseAPI().getConfiguration().getConfig().getInt("start_balance"));
