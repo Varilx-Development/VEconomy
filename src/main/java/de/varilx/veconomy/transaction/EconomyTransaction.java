@@ -1,6 +1,5 @@
 package de.varilx.veconomy.transaction;
 
-
 import de.varilx.database.id.MongoId;
 import de.varilx.veconomy.transaction.type.TransactionType;
 import de.varilx.veconomy.user.EconomyUser;
@@ -36,6 +35,8 @@ public class EconomyTransaction {
     UUID transactionId;
 
     UUID accountId;
+
+    UUID receiverId;
     double amount, balance;
     TransactionType type;
     long time;
