@@ -34,8 +34,8 @@ public class MoneyCommand extends VaxCommand {
     VEconomy plugin;
     Repository<EconomyUser, UUID> repository;
 
-    public MoneyCommand(@NotNull String name, VEconomy plugin) {
-        super(name);
+    public MoneyCommand(VEconomy plugin) {
+        super(LanguageUtils.getMessageString("Commands.Money.Name"));
         this.plugin = plugin;
         this.repository = (Repository<EconomyUser, UUID>) plugin.getDatabaseService().getRepository(EconomyUser.class);
     }
