@@ -24,7 +24,9 @@ public enum TransactionType {
     ADMIN_ADD(LanguageUtils.getMessageString("admin_add")),
     ADMIN_REMOVE(LanguageUtils.getMessageString("admin_remove")),
     ADMIN_SET(LanguageUtils.getMessageString("admin_set")),
-    ADMIN_RESET(LanguageUtils.getMessageString("admin_reset"));
+    ADMIN_RESET(LanguageUtils.getMessageString("admin_reset")),
+    PAY(LanguageUtils.getMessageString("pay")),
+    PAY_RECEIVE(LanguageUtils.getMessageString("pay_receive"));
 
     String displayName;
 
