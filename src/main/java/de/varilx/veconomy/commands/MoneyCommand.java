@@ -7,6 +7,7 @@ import de.varilx.utils.MathUtils;
 import de.varilx.utils.NumberUtils;
 import de.varilx.utils.language.LanguageUtils;
 import de.varilx.veconomy.VEconomy;
+import de.varilx.veconomy.gui.MoneyTopGui;
 import de.varilx.veconomy.transaction.EconomyTransaction;
 import de.varilx.veconomy.transaction.type.TransactionType;
 import de.varilx.veconomy.user.EconomyUser;
@@ -50,11 +51,11 @@ public class MoneyCommand extends VaxCommand {
                    ));
                 });
             } else if(args.length == 1) {
-                if(args[0].toLowerCase().contentEquals("top")) {
-
+                if(args[0].toLowerCase().contentEquals(LanguageUtils.getMessageString("Commands.Money.Arguments.Top"))) {
+                    new MoneyTopGui(plugin, player);
                 }
             } else if(args.length == 3) {
-                if(args[0].toLowerCase().contentEquals("pay")) {
+                if(args[0].toLowerCase().contentEquals(LanguageUtils.getMessageString("Commands.Money.Arguments.Pay"))) {
                     String user = args[1];
 
                     if(!NumberUtils.isNumeric(args[2])) {
