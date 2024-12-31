@@ -79,7 +79,14 @@ public class MoneyTopGui {
            int count = 0;
             for (EconomyUser user : users) {
                 count++;
-                gameInventory.addItem((char) ('0' + count), new ClickableItem(new SkullBuilder()
+                char countChar = ' ';
+                if(count < 10) {
+                    countChar = (char) ('0' + count);
+                } else {
+                    countChar = '0';
+                }
+
+                gameInventory.addItem(countChar, new ClickableItem(new SkullBuilder()
                         .name(LanguageUtils.getMessage("top_item_name",
                                 Placeholder.parsed("currency_name", LanguageUtils.getMessageString("currency_name")),
                                 Placeholder.parsed("count", String.valueOf(count)),
