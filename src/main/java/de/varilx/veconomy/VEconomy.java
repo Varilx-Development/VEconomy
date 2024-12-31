@@ -3,7 +3,7 @@ package de.varilx.veconomy;
 import de.varilx.BaseAPI;
 import de.varilx.command.registry.VaxCommandRegistry;
 import de.varilx.database.Service;
-import de.varilx.utils.language.LanguageUtils;
+import de.varilx.veconomy.commands.MoneyAdminCommand;
 import de.varilx.veconomy.commands.MoneyCommand;
 import de.varilx.veconomy.listener.ConnectionListener;
 import de.varilx.veconomy.user.EconomyUser;
@@ -35,7 +35,8 @@ public final class VEconomy extends JavaPlugin {
 
     private void registerCommands() {
         VaxCommandRegistry registry = new VaxCommandRegistry();
-        registry.registerCommand(new MoneyCommand(LanguageUtils.getMessageString("Commands.Money.Name"), this));
+        registry.registerCommand(new MoneyCommand(this));
+        registry.registerCommand(new MoneyAdminCommand(this));
     }
 
     private void registerListener() {
