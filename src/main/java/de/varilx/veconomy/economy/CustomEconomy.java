@@ -2,6 +2,7 @@ package de.varilx.veconomy.economy;
 
 
 import de.varilx.database.repository.Repository;
+import de.varilx.utils.language.LanguageUtils;
 import de.varilx.veconomy.VEconomy;
 import de.varilx.veconomy.user.EconomyUser;
 import lombok.AccessLevel;
@@ -60,12 +61,12 @@ public class CustomEconomy implements Economy {
 
     @Override
     public String currencyNamePlural() {
-        return "";
+        return LanguageUtils.getMessageString("currency_name_plural");
     }
 
     @Override
     public String currencyNameSingular() {
-        return "";
+        return LanguageUtils.getMessageString("currency_name_singular");
     }
 
     @SneakyThrows
