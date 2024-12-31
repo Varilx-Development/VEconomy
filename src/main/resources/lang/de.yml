@@ -1,0 +1,7 @@
+# General Messages
+add: "<green>Hinzugefügt"
+remove: "<red>Entfernt"
+admin_add: "<green>Hinzugefügt <dark_gray>(<red>Admin<dark_gray>)"
+admin_remove: "<green>Entfernt <dark_gray>(<red>Admin<dark_gray>)"
+admin_set: "<green>Set <dark_gray>(<red>Admin<dark_gray>)"
+admin_reset: "<green>Reset <dark_gray>(<red>Admin<dark_gray>)"

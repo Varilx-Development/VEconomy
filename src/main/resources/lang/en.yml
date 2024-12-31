@@ -1,0 +1,9 @@
+# Using Minimessage https://docs.advntr.dev/minimessage/format.html
+
+# General Messages
+add: "<green>Add"
+remove: "<red>Remove"
+admin_add: "<green>Add <dark_gray>(<red>Admin<dark_gray>)"
+admin_remove: "<green>Remove <dark_gray>(<red>Admin<dark_gray>)"
+admin_set: "<green>Set <dark_gray>(<red>Admin<dark_gray>)"
+admin_reset: "<green>Reset <dark_gray>(<red>Admin<dark_gray>)"
