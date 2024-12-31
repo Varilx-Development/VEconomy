@@ -1,9 +1,29 @@
 # Using Minimessage https://docs.advntr.dev/minimessage/format.html
 
 # General Messages
+currency_name: "coins"
+prefix: "<bold><dark_gray>[<gradient:#FAF162:#D91A0D>VEconomy</gradient><dark_gray>]<reset><gray> "
+user_not_found: "<prefix><red>This user doesnt exist"
+no_valid_number: "<prefix><red>Enter a valid number"
 add: "<green>Add"
 remove: "<red>Remove"
+pay: "<red>Pay <dark_gray>» <username>"
+pay_receive: "<red>Pay receive <dark_gray>» <username>"
 admin_add: "<green>Add <dark_gray>(<red>Admin<dark_gray>)"
 admin_remove: "<green>Remove <dark_gray>(<red>Admin<dark_gray>)"
 admin_set: "<green>Set <dark_gray>(<red>Admin<dark_gray>)"
 admin_reset: "<green>Reset <dark_gray>(<red>Admin<dark_gray>)"
+
+command_money_own_balance: "<prefix>You have <yellow><balance> <currency_name>"
+command_money_pay_self: "<prefix><red>You cannot send money to yourself"
+command_money_pay_not_enough_money: "<prefix><red>You don't have enough money"
+command_money_pay_success: "<prefix>You have sent <green><receiver> <yellow><amount> <currency_name><gray> to the player"
+command_money_pay_success_receiver: "<prefix>The player <green><sender><gray> has sent you <yellow><amount> <currency_name><gray>"
+
+# Commands
+Commands:
+  Money:
+    Name: "money"
+    Arguments:
+      Top: "top"
+      Pay: "pay"
