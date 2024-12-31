@@ -20,6 +20,17 @@ command_money_pay_not_enough_money: "<prefix><red>You don't have enough money"
 command_money_pay_success: "<prefix>You have sent <green><receiver> <yellow><amount> <currency_name><gray> to the player"
 command_money_pay_success_receiver: "<prefix>The player <green><sender><gray> has sent you <yellow><amount> <currency_name><gray>"
 
+top_item_name: "<green><count><gray># <yellow><username> <dark_gray>(<yellow><balance> <currency_name><dark_gray>)"
+
+# Gui
+Gui:
+  Top:
+    Title: "<prefix> Top 10 Money"
+    Items:
+      Placeholders:
+        1: "GRAY_STAINED_GLASS_PANE"
+        2: "WHITE_STAINED_GLASS_PANE"
+
 # Commands
 Commands:
   Money:
