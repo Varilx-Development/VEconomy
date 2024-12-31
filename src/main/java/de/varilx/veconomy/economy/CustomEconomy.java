@@ -5,6 +5,7 @@ import de.varilx.database.repository.Repository;
 import de.varilx.veconomy.VEconomy;
 import de.varilx.veconomy.user.EconomyUser;
 import lombok.AccessLevel;
+import lombok.SneakyThrows;
 import lombok.experimental.FieldDefaults;
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.economy.EconomyResponse;
@@ -67,14 +68,18 @@ public class CustomEconomy implements Economy {
         return "";
     }
 
+    @SneakyThrows
     @Override
     public boolean hasAccount(String s) {
-        return false;
+        EconomyUser user = repository.findByFieldName("name", s).get();
+        return user != null;
     }
 
+    @SneakyThrows
     @Override
     public boolean hasAccount(OfflinePlayer offlinePlayer) {
-        return false;
+        EconomyUser user = repository.findFirstById(offlinePlayer.getUniqueId()).get();
+        return user != null;
     }
 
     @Override
@@ -82,19 +87,25 @@ public class CustomEconomy implements Economy {
         return false;
     }
 
+    @SneakyThrows
     @Override
     public boolean hasAccount(OfflinePlayer offlinePlayer, String s) {
-        return false;
+        EconomyUser user = repository.findByFieldName("name", s).get();
+        return user != null;
     }
 
+    @SneakyThrows
     @Override
     public double getBalance(String s) {
-        return 0;
+        EconomyUser user = repository.findByFieldName("name", s).get();
+        return user.getBalance();
     }
 
+    @SneakyThrows
     @Override
     public double getBalance(OfflinePlayer offlinePlayer) {
-        return 0;
+        EconomyUser user = repository.findFirstById(offlinePlayer.getUniqueId()).get();
+        return user.getBalance();
     }
 
     @Override
@@ -102,69 +113,119 @@ public class CustomEconomy implements Economy {
         return 0;
     }
 
+    @SneakyThrows
     @Override
     public double getBalance(OfflinePlayer offlinePlayer, String s) {
-        return 0;
+        EconomyUser user = repository.findByFieldName("name", s).get();
+        return user.getBalance();
     }
 
+    @SneakyThrows
     @Override
     public boolean has(String s, double v) {
-        return false;
+        EconomyUser user = repository.findByFieldName("name", s).get();
+        return user.getBalance() >= v;
     }
 
+    @SneakyThrows
     @Override
     public boolean has(OfflinePlayer offlinePlayer, double v) {
-        return false;
+        EconomyUser user = repository.findFirstById(offlinePlayer.getUniqueId()).get();
+        return user.getBalance() >= v;
     }
 
+    @SneakyThrows
     @Override
     public boolean has(String s, String s1, double v) {
-        return false;
+        EconomyUser user = repository.findByFieldName("name", s).get();
+        return user.getBalance() >= v;
     }
 
+    @SneakyThrows
     @Override
     public boolean has(OfflinePlayer offlinePlayer, String s, double v) {
-        return false;
+        EconomyUser user = repository.findByFieldName("name", s).get();
+        return user.getBalance() >= v;
     }
 
+    @SneakyThrows
     @Override
     public EconomyResponse withdrawPlayer(String s, double v) {
-        return null;
+        EconomyUser user = repository.findByFieldName("name", s).get();
+        user.addBalance(v);
+        repository.save(user);
+        return new EconomyResponse(v, user.getBalance(), EconomyResponse.ResponseType.SUCCESS, null);
     }
 
+    @SneakyThrows
     @Override
     public EconomyResponse withdrawPlayer(OfflinePlayer offlinePlayer, double v) {
-        return null;
+        EconomyUser user = repository.findFirstById(offlinePlayer.getUniqueId()).get();
+        user.addBalance(v);
+        repository.save(user);
+        return new EconomyResponse(v, user.getBalance(), EconomyResponse.ResponseType.SUCCESS, null);
     }
 
+    @SneakyThrows
     @Override
     public EconomyResponse withdrawPlayer(String s, String s1, double v) {
-        return null;
+        EconomyUser user = repository.findByFieldName("name", s).get();
+        user.addBalance(v);
+        repository.save(user);
+        return new EconomyResponse(v, user.getBalance(), EconomyResponse.ResponseType.SUCCESS, null);
     }
 
+    @SneakyThrows
     @Override
     public EconomyResponse withdrawPlayer(OfflinePlayer offlinePlayer, String s, double v) {
-        return null;
+        EconomyUser user = repository.findFirstById(offlinePlayer.getUniqueId()).get();
+        user.addBalance(v);
+        repository.save(user);
+        return new EconomyResponse(v, user.getBalance(), EconomyResponse.ResponseType.SUCCESS, null);
     }
 
+    @SneakyThrows
     @Override
     public EconomyResponse depositPlayer(String s, double v) {
-        return null;
+        EconomyUser user = repository.findByFieldName("name", s).get();
+        if(user.getBalance() - v < 0)
+            return new EconomyResponse(v, user.getBalance(), EconomyResponse.ResponseType.FAILURE, null);
+        user.removeBalance(v);
+        repository.save(user);
+        return new EconomyResponse(v, user.getBalance(), EconomyResponse.ResponseType.SUCCESS, null);
     }
 
+    @SneakyThrows
     @Override
     public EconomyResponse depositPlayer(OfflinePlayer offlinePlayer, double v) {
-        return null;
+        EconomyUser user = repository.findFirstById(offlinePlayer.getUniqueId()).get();
+        if(user.getBalance() - v < 0)
+            return new EconomyResponse(v, user.getBalance(), EconomyResponse.ResponseType.FAILURE, null);
+        user.removeBalance(v);
+        repository.save(user);
+        return new EconomyResponse(v, user.getBalance(), EconomyResponse.ResponseType.SUCCESS, null);
     }
 
+    @SneakyThrows
     @Override
     public EconomyResponse depositPlayer(String s, String s1, double v) {
-        return null;
+        EconomyUser user = repository.findByFieldName("name", s).get();
+        if(user.getBalance() - v < 0)
+            return new EconomyResponse(v, user.getBalance(), EconomyResponse.ResponseType.FAILURE, null);
+        user.removeBalance(v);
+        repository.save(user);
+        return new EconomyResponse(v, user.getBalance(), EconomyResponse.ResponseType.SUCCESS, null);
     }
 
+    @SneakyThrows
     @Override
     public EconomyResponse depositPlayer(OfflinePlayer offlinePlayer, String s, double v) {
-        return null;
+        EconomyUser user = repository.findFirstById(offlinePlayer.getUniqueId()).get();
+        if(user.getBalance() - v < 0)
+            return new EconomyResponse(v, user.getBalance(), EconomyResponse.ResponseType.FAILURE, null);
+        user.removeBalance(v);
+        repository.save(user);
+        return new EconomyResponse(v, user.getBalance(), EconomyResponse.ResponseType.SUCCESS, null);
     }
 
     @Override
