@@ -69,7 +69,7 @@ Gui:
         Name: "<green>Next"
         Lore:
           - ""
-          - "<dark_gray>| <gray>Klicke hier um zur nächsten Seite zu gelangen"
+          - "<dark_gray>| <gray>Click here to go to the next page"
 
 # Commands
 Commands:
