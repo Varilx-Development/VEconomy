@@ -153,7 +153,7 @@ public class CustomEconomy implements Economy {
     @Override
     public EconomyResponse withdrawPlayer(String s, double v) {
         EconomyUser user = repository.findByFieldName("name", s).get();
-        user.addBalance(v);
+        user.removeBalance(v);
         repository.save(user);
         return new EconomyResponse(v, user.getBalance(), EconomyResponse.ResponseType.SUCCESS, null);
     }
@@ -162,7 +162,7 @@ public class CustomEconomy implements Economy {
     @Override
     public EconomyResponse withdrawPlayer(OfflinePlayer offlinePlayer, double v) {
         EconomyUser user = repository.findFirstById(offlinePlayer.getUniqueId()).get();
-        user.addBalance(v);
+        user.removeBalance(v);
         repository.save(user);
         return new EconomyResponse(v, user.getBalance(), EconomyResponse.ResponseType.SUCCESS, null);
     }
@@ -171,7 +171,7 @@ public class CustomEconomy implements Economy {
     @Override
     public EconomyResponse withdrawPlayer(String s, String s1, double v) {
         EconomyUser user = repository.findByFieldName("name", s).get();
-        user.addBalance(v);
+        user.removeBalance(v);
         repository.save(user);
         return new EconomyResponse(v, user.getBalance(), EconomyResponse.ResponseType.SUCCESS, null);
     }
@@ -180,7 +180,7 @@ public class CustomEconomy implements Economy {
     @Override
     public EconomyResponse withdrawPlayer(OfflinePlayer offlinePlayer, String s, double v) {
         EconomyUser user = repository.findFirstById(offlinePlayer.getUniqueId()).get();
-        user.addBalance(v);
+        user.removeBalance(v);
         repository.save(user);
         return new EconomyResponse(v, user.getBalance(), EconomyResponse.ResponseType.SUCCESS, null);
     }
