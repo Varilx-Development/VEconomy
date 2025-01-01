@@ -135,7 +135,8 @@ public class TransactionsGui {
                 .lore(LanguageUtils.getMessageList("Gui.Transactions.Items.TransactionItem.Lore",
                         Placeholder.parsed("amount", MathUtils.formatNumber(transaction.getAmount())),
                         Placeholder.parsed("balance", MathUtils.formatNumber(transaction.getBalance())),
-                        Placeholder.parsed("type", transaction.getType().getDisplayName())
+                        Placeholder.parsed("type", transaction.getType().getDisplayName()),
+                        Placeholder.parsed("username", transaction.getUser().getName())
                 ))
                 .build()) {
             @Override
