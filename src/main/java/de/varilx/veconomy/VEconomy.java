@@ -26,7 +26,7 @@ public final class VEconomy extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        new BaseAPI(this).enable();
+        new BaseAPI(this, 24306).enable();
         initializeDatabaseService();
         registerListener();
         registerCommands();
