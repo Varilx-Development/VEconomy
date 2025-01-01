@@ -1,7 +1,94 @@
 # General Messages
-add: "<green>Hinzugefügt"
-remove: "<red>Entfernt"
-admin_add: "<green>Hinzugefügt <dark_gray>(<red>Admin<dark_gray>)"
-admin_remove: "<green>Entfernt <dark_gray>(<red>Admin<dark_gray>)"
-admin_set: "<green>Set <dark_gray>(<red>Admin<dark_gray>)"
-admin_reset: "<green>Reset <dark_gray>(<red>Admin<dark_gray>)"
+currency_name: "Coins"
+currency_name_plural: "Coins"
+currency_name_singular: "Coin"
+prefix: "<bold><dark_gray>[<gradient:#FAF162:#D91A0D>VEconomy</gradient><dark_gray>]<reset><gray> "
+user_not_found: "<prefix><red>Dieser Nutzer existiert nicht."
+no_valid_number: "<prefix><red>Bitte gib eine valide Zahl ein."
+no_permission: "<prefix><red>Dir fehlen die Rechte dies zu tun!"
+date_format: "dd.MM.yyyy - HH:mm"
+add: "<green>Hinzufügen"
+remove: "<red>Entfernen"
+pay: "<red>Überweisen"
+pay_receive: "<red>Überweisung erhalten"
+admin_add: "<green>Hinzufügen <dark_gray>(<red>Admin<dark_gray>)"
+admin_remove: "<green>Entfernen <dark_gray>(<red>Admin<dark_gray>)"
+admin_set: "<green>Setzen <dark_gray>(<red>Admin<dark_gray>)"
+admin_reset: "<green>Zurücksetzen <dark_gray>(<red>Admin<dark_gray>)"
+
+command_money_own_balance: "<prefix>Du hast aktuell <yellow><balance> <currency_name>"
+command_money_pay_self: "<prefix><red>Du kannst kein Geld an dich selbst überweisen!"
+command_money_pay_not_enough_money: "<prefix><red>Du hast nicht genügend Geld!"
+command_money_pay_success: "<prefix>Du hast <green><receiver> <yellow><amount> <currency_name><gray> überwiesen!"
+command_money_pay_success_receiver: "<prefix>Der Spieler <green><sender><gray> hat dir <yellow><amount> <currency_name> <gray>überwiesen!"
+
+command_moneyadmin_reset_success: "<prefix>Erfolgreich das Geld von <yellow><username> <gray>zurückgesetzt."
+command_moneyadmin_add_success: "<prefix>Erfolgreich dem Spieler <yellow> <balance> <currency_name> <gray>hinzugefügt."
+command_moneyadmin_set_success: "<prefix>Erfolgreich das Geld vom Spieler auf <yellow> <balance> <currency_name> <gray>gesetzt."
+command_moneyadmin_remove_not_enough_money: "<prefix><red>Du kannst das Geld nicht ins negative bringen!"
+command_moneyadmin_remove_success: "<prefix><red>Erfolgreich <yellow><balance> <currency_name> <gray>vom Spieler entfernt."
+
+top_item_name: "<green><count><gray># <yellow><username> <dark_gray>(<yellow><balance> <currency_name><dark_gray>)"
+
+# Skulls
+transaction_item_add_skull: "https://textures.minecraft.net/texture/5ff31431d64587ff6ef98c0675810681f8c13bf96f51d9cb07ed7852b2ffd1"
+transaction_item_remove_skull: "https://textures.minecraft.net/texture/4e4b8b8d2362c864e062301487d94d3272a6b570afbf80c2c5b148c954579d46"
+back_skull: "https://textures.minecraft.net/texture/bd8a99db2c37ec71d7199cd52639981a7513ce9cca9626a3936f965b131193"
+next_skull: "https://textures.minecraft.net/texture/3edd20be93520949e6ce789dc4f43efaeb28c717ee6bfcbbe02780142f716"
+admin_reset_skull: "https://textures.minecraft.net/texture/e9cdb9af38cf41daa53bc8cda7665c509632d14e678f0f19f263f46e541d8a30"
+
+# Gui
+Gui:
+  Top:
+    Title: "<prefix> Top 10 Money"
+    Items:
+      Placeholders:
+        1: "GRAY_STAINED_GLASS_PANE"
+        2: "WHITE_STAINED_GLASS_PANE"
+  Transactions:
+    Title: "<prefix> Transaktionen"
+    Items:
+      Placeholders:
+        1:
+          Material: "GRAY_STAINED_GLASS_PANE"
+      TransactionItem:
+        Name: "<red>Transaktionen <dark_gray>| <yellow><date>"
+        Lore:
+          - ""
+          - "<dark_gray>| <gray>Anzahl <dark_gray>» <yellow><amount>"
+          - "<dark_gray>| <gray>Saldo <dark_gray>» <yellow><balance>"
+          - "<dark_gray>| <gray>Aktion <dark_gray>» <yellow><type>"
+      BackItem:
+        Name: "<red>Zurück"
+        Lore:
+          - ""
+          - "<dark_gray>| <gray>Klicke hier um zur vorherigen Seite zu gelangen."
+      NextItem:
+        Name: "<green>Weiter"
+        Lore:
+          - ""
+          - "<dark_gray>| <gray>Klicke hier um zur nächsten Seite zu gelangen."
+
+# Commands
+Commands:
+  Money:
+    Name: "money"
+    Arguments:
+      Top: "top"
+      Pay: "pay"
+  MoneyAdmin:
+    Name: "moneyadmin"
+    Permission: "veconomy.moneyadmin"
+    Arguments:
+      Add: "add"
+      Remove: "remove"
+      Set: "set"
+      Reset: "reset"
+      Transactions: "transactions"
+    Usage:
+      - "<prefix>MoneyAdmin help<dark_gray>:"
+      - "<prefix>Nutze <yellow>/moneyadmin add <dark_gray><<yellow>Player<dark_gray>> <<yellow>Amount<dark_gray>>."
+      - "<prefix>Nutze <yellow>/moneyadmin remove <dark_gray><<yellow>Player<dark_gray>> <<yellow>Amount<dark_gray>>."
+      - "<prefix>Nutze <yellow>/moneyadmin set <dark_gray><<yellow>Player<dark_gray>> <<yellow>Amount<dark_gray>>."
+      - "<prefix>Nutze <yellow>/moneyadmin reset <dark_gray><<yellow>Player<dark_gray>.>"
+      - "<prefix>Nutze <yellow>/moneyadmin transactions <dark_gray><<yellow>Player<dark_gray>>."
