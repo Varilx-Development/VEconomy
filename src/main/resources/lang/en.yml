@@ -27,7 +27,7 @@ command_money_pay_success_receiver: "<prefix>The player <green><sender><gray> ha
 command_moneyadmin_reset_success: "<prefix>The money of <yellow><username> <gray>has been reset"
 command_moneyadmin_add_success: "<prefix>The player was given<yellow> <balance> <currency_name>"
 command_moneyadmin_set_success: "<prefix>The player was set to<yellow> <balance> <currency_name>"
-command_moneyadmin_remove_not_enough_money: "<prefix><red>You cannot bet the money negatively"
+command_moneyadmin_remove_not_enough_money: "<prefix><red>You cannot set the money negatively"
 command_moneyadmin_remove_success: "<prefix><red>You have removed <yellow><balance> <currency_name> <gray>from the player"
 
 top_item_name: "<green><count><gray># <yellow><username> <dark_gray>(<yellow><balance> <currency_name><dark_gray>)"
