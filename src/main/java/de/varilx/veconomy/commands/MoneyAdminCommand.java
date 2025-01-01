@@ -13,6 +13,7 @@ import de.varilx.veconomy.user.EconomyUser;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
+import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
@@ -96,13 +97,17 @@ public class MoneyAdminCommand extends VaxCommand {
     @Override
     public @NotNull List<String> tabComplete(@NotNull CommandSender sender, @NotNull String alias, @NotNull String[] args) throws IllegalArgumentException {
         if(sender instanceof Player player && player.hasPermission(LanguageUtils.getMessageString("Commands.MoneyAdmin.Permission"))) {
-            return List.of(
-                    LanguageUtils.getMessageString("Commands.MoneyAdmin.Arguments.Add"),
-                    LanguageUtils.getMessageString("Commands.MoneyAdmin.Arguments.Remove"),
-                    LanguageUtils.getMessageString("Commands.MoneyAdmin.Arguments.Set"),
-                    LanguageUtils.getMessageString("Commands.MoneyAdmin.Arguments.Reset"),
-                    LanguageUtils.getMessageString("Commands.MoneyAdmin.Arguments.Transactions")
-            );
+            if(args.length == 1) {
+                return List.of(
+                        LanguageUtils.getMessageString("Commands.MoneyAdmin.Arguments.Add"),
+                        LanguageUtils.getMessageString("Commands.MoneyAdmin.Arguments.Remove"),
+                        LanguageUtils.getMessageString("Commands.MoneyAdmin.Arguments.Set"),
+                        LanguageUtils.getMessageString("Commands.MoneyAdmin.Arguments.Reset"),
+                        LanguageUtils.getMessageString("Commands.MoneyAdmin.Arguments.Transactions")
+                );
+            } else if(args.length == 2) {
+                return Bukkit.getOnlinePlayers().stream().map(Player::getName).toList();
+            }
         }
         return super.tabComplete(sender, alias, args);
     }
