@@ -20,16 +20,12 @@ repositories {
     maven {
         name = "varilx"
         url = uri("https://reposilite.varilx.de/Varilx")
-        credentials {
-            username = System.getenv("VARILX_USER")
-            password = System.getenv("VARILX_TOKEN")
-        }
     }
     maven { url 'https://jitpack.io' }
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.21.3-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:${paper_version}")
     compileOnly("org.projectlombok:lombok:1.18.36")
     implementation("de.varilx:base-api:0.4.0")
     compileOnly ("com.github.MilkBowl:VaultAPI:1.7")

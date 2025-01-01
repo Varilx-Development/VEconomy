@@ -134,7 +134,7 @@ public class TransactionsGui {
                         Placeholder.parsed("amount", MathUtils.formatNumber(transaction.getAmount())),
                         Placeholder.parsed("balance", MathUtils.formatNumber(transaction.getBalance())),
                         Placeholder.parsed("type", transaction.getType().getDisplayName()),
-                        Placeholder.parsed("username", userRepository.findFirstById(transaction.get))
+                        Placeholder.parsed("username", transaction.getUser().getName())
                 ))
                 .build()) {
             @Override
