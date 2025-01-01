@@ -40,6 +40,7 @@ public class TransactionsGui {
 
     Repository<EconomyUser, UUID> userRepository;
     Player holder;
+    UUID target;
     VEconomy plugin;
     DateFormat dateFormat;
 
@@ -53,16 +54,17 @@ public class TransactionsGui {
     };
 
 
-    public TransactionsGui(Player holder, VEconomy plugin) {
+    public TransactionsGui(Player holder, UUID target, VEconomy plugin) {
         this.holder = holder;
         this.plugin = plugin;
+        this.target = target;
         this.dateFormat = new SimpleDateFormat(LanguageUtils.getMessageString("date_format"));
         this.userRepository = (Repository<EconomyUser, UUID>) plugin.getDatabaseService().getRepository(EconomyUser.class);
         openGui();
     }
 
     private void openGui() {
-        userRepository.findFirstById(holder.getUniqueId()).thenAccept(user -> {
+        userRepository.findFirstById(target).thenAccept(user -> {
             List<EconomyTransaction> transactions = user.getTransactions();
             transactions.sort(Comparator.comparingLong(EconomyTransaction::getTime).reversed());
 
@@ -133,8 +135,7 @@ public class TransactionsGui {
                 .lore(LanguageUtils.getMessageList("Gui.Transactions.Items.TransactionItem.Lore",
                         Placeholder.parsed("amount", MathUtils.formatNumber(transaction.getAmount())),
                         Placeholder.parsed("balance", MathUtils.formatNumber(transaction.getBalance())),
-                        Placeholder.parsed("type", transaction.getType().getDisplayName()),
-                        Placeholder.parsed("username", userRepository.findFirstById(transaction.get))
+                        Placeholder.parsed("type", transaction.getType().getDisplayName())
                 ))
                 .build()) {
             @Override
