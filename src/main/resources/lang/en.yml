@@ -24,6 +24,12 @@ command_money_pay_not_enough_money: "<prefix><red>You don't have enough money"
 command_money_pay_success: "<prefix>You have sent <green><receiver> <yellow><amount> <currency_name><gray> to the player"
 command_money_pay_success_receiver: "<prefix>The player <green><sender><gray> has sent you <yellow><amount> <currency_name><gray>"
 
+command_moneyadmin_reset_success: "<prefix>The money of <yellow><username> <gray>has been reset"
+command_moneyadmin_add_success: "<prefix>The player was given<yellow> <balance> <currency_name>"
+command_moneyadmin_set_success: "<prefix>The player was set to<yellow> <balance> <currency_name>"
+command_moneyadmin_remove_not_enough_money: "<prefix><red>You cannot bet the money negatively"
+command_moneyadmin_remove_success: "<prefix><red>You have removed <yellow><balance> <currency_name> <gray>from the player"
+
 top_item_name: "<green><count><gray># <yellow><username> <dark_gray>(<yellow><balance> <currency_name><dark_gray>)"
 
 # Skulls
@@ -81,3 +87,10 @@ Commands:
       Set: "set"
       Reset: "reset"
       Transactions: "transactions"
+    Usage:
+      - "<prefix>MoneyAdmin help<dark_gray>:"
+      - "<prefix>Use <yellow>/moneyadmin add <dark_gray><<yellow>Player<dark_gray>> <<yellow>Amount<dark_gray>>"
+      - "<prefix>Use <yellow>/moneyadmin remove <dark_gray><<yellow>Player<dark_gray>> <<yellow>Amount<dark_gray>>"
+      - "<prefix>Use <yellow>/moneyadmin set <dark_gray><<yellow>Player<dark_gray>> <<yellow>Amount<dark_gray>>"
+      - "<prefix>Use <yellow>/moneyadmin reset <dark_gray><<yellow>Player<dark_gray>>"
+      - "<prefix>Use <yellow>/moneyadmin transactions <dark_gray><<yellow>Player<dark_gray>>"
