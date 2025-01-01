@@ -1,8 +1,14 @@
-![v-bank](https://github.com/user-attachments/assets/025b2a41-1e36-497f-baa9-f7267d79f205)
+![v-economy](https://github.com/user-attachments/assets/e9496257-71d4-4862-851d-9290630931e9)
 
 ![Discord](https://img.shields.io/discord/1322873747535040512)
 ![Build Status](https://img.shields.io/github/actions/workflow/status/Varilx-Development/VDiscordIntegration/build.yml?branch=main)
 ![Release](https://img.shields.io/github/v/release/Varilx-Development/VDiscordIntegration)
+
+<p align="center">
+    <a href="https://modrinth.com/plugin/veconomy">
+        <img src="https://raw.githubusercontent.com/vLuckyyy/badges/main/avaiable-on-modrinth.svg" alt="Available on Modrinth" />
+    </a>
+</p>
 
 # VEconomy Configuration
 
@@ -11,8 +17,17 @@ A economy plugin that works with **Vault** and fully Customizable!
 ---
 
 # Preview
-![bank-show](https://github.com/user-attachments/assets/e972256f-8a85-4f31-a897-3c2deb15b690)
 
+### Money Leaderboard
+![Leaderboard](https://cdn.varilx.de/u/bbd7c212-42bf-40a3-8867-c80d288f8d91.png)
+### Transactions
+![Transactions](https://cdn.varilx.de/u/b29e3c7d-dab7-4fb1-b19f-9e9c07c38d9c.png)
+
+![Transactionsadd](https://cdn.varilx.de/u/845e964d-d411-45ae-aaa1-7e6c84859305.png)
+
+![Transactionspay](https://cdn.varilx.de/u/ec88421a-dcf5-4ce6-aa75-7fd3bf871643.png)
+### Moneyadmin
+![moneyadmincommands](https://cdn.varilx.de/u/20269da6-f672-430d-8a87-327c0f0442a9.png)
 
 ## Configuration Overview
 
@@ -27,6 +42,10 @@ We currently support: `de` and `en`
 
 ### 3. **Commands**
 `/money` - Shows your balance
+
+`/money top` - Shows the TOP 10 Money.
+
+`/money pay (player) (amount)` - Paying Player Money.
 
 `/moneyadmin add (player) (amount)` - Giving the Player Money Balance.
 
