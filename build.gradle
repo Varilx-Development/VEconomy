@@ -27,7 +27,7 @@ repositories {
 dependencies {
     compileOnly("io.papermc.paper:paper-api:${paper_version}")
     compileOnly("org.projectlombok:lombok:1.18.36")
-    implementation("de.varilx:base-api:0.4.1")
+    implementation("de.varilx:base-api:0.5.0")
     compileOnly ("com.github.MilkBowl:VaultAPI:1.7.1")
 
     annotationProcessor("org.projectlombok:lombok:1.18.36")

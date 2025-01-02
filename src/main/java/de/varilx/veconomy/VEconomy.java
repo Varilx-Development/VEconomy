@@ -49,7 +49,7 @@ public final class VEconomy extends JavaPlugin {
     }
 
     private void initializeDatabaseService() {
-        databaseService = Service.load(BaseAPI.getBaseAPI().getDatabaseConfiguration().getConfig(), getClassLoader());
+        databaseService = Service.load(BaseAPI.getBaseAPI().getDatabaseConfiguration(), getClassLoader());
         databaseService.create(EconomyUser.class, UUID.class);
     }
 
