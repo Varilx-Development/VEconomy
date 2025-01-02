@@ -5,5 +5,11 @@
     ":assignee(VAXShadow1929)",
     ":reviewer(VAXShadow1929)",
     ":label(dependencies)"
+  ],
+  "packageRules": [
+    {
+      "packagePatterns": ["de.varilx:base-api"],
+      "excludeVersions": ["*.*.*-*"]
+    }
   ]
 }
