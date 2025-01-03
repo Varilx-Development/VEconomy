@@ -57,7 +57,7 @@ public class MoneyTopGui {
     }
 
     private void openGui() {
-        GameInventory gameInventory = new GameInventoryBuilder(BaseAPI.getBaseAPI())
+        GameInventory gameInventory = new GameInventoryBuilder(BaseAPI.get())
                 .pattern(PATTERN)
                 .inventoryName(LanguageUtils.getMessage("Gui.Top.Title"))
                 .size(6 * 9)

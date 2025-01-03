@@ -48,7 +48,7 @@ public class ConnectionListener implements Listener {
            }
 
            EconomyUser user = new EconomyUser();
-           user.setBalance(BaseAPI.getBaseAPI().getConfiguration().getConfig().getInt("start_balance"));
+           user.setBalance(BaseAPI.get().getConfiguration().getInt("start_balance"));
            user.setName(player.getName());
            user.setUniqueId(player.getUniqueId());
            user.setTransactions(new ArrayList<>());

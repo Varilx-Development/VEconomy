@@ -1,6 +1,7 @@
 package de.varilx.veconomy;
 
 import de.varilx.BaseAPI;
+import de.varilx.BaseSpigotAPI;
 import de.varilx.command.registry.VaxCommandRegistry;
 import de.varilx.database.Service;
 import de.varilx.veconomy.commands.MoneyAdminCommand;
@@ -16,6 +17,7 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.ServicePriority;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.Objects;
 import java.util.UUID;
 
 @Getter
@@ -26,7 +28,7 @@ public final class VEconomy extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        new BaseAPI(this, 24306).enable();
+        new BaseSpigotAPI(this, 24306).enable();
         initializeDatabaseService();
         registerListener();
         registerCommands();
@@ -49,7 +51,7 @@ public final class VEconomy extends JavaPlugin {
     }
 
     private void initializeDatabaseService() {
-        databaseService = Service.load(BaseAPI.getBaseAPI().getDatabaseConfiguration(), getClassLoader());
+        databaseService = Service.load(Objects.requireNonNull(BaseAPI.get().getDatabaseConfiguration()), getClassLoader());
         databaseService.create(EconomyUser.class, UUID.class);
     }
 

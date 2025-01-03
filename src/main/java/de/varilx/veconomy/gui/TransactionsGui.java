@@ -74,7 +74,7 @@ public class TransactionsGui {
                 paginationItems.add(transactionItem(transaction));
             });
 
-            GameInventory inventory = new GameInventoryBuilder(BaseAPI.getBaseAPI())
+            GameInventory inventory = new GameInventoryBuilder(BaseAPI.get())
                     .inventoryName(LanguageUtils.getMessage("Gui.Transactions.Title"))
                     .holder(holder)
                     .pattern(PATTERN)
