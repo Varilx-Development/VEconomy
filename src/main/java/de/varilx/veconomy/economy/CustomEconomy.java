@@ -15,13 +15,6 @@ import org.bukkit.OfflinePlayer;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * Project: VEconomy
- * Package: de.varilx.veconomy.economy
- * <p>
- * Author: ShadowDev1929
- * Created on: 31.12.2024
- */
 
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class CustomEconomy implements Economy {

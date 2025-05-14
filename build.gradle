@@ -27,8 +27,8 @@ repositories {
 dependencies {
     compileOnly("io.papermc.paper:paper-api:${paper_version}")
     compileOnly("org.projectlombok:lombok:1.18.38")
-    implementation("de.varilx:base-api:1.1.0")
-    compileOnly ("com.github.MilkBowl:VaultAPI:1.7.1")
+    implementation ("com.github.MilkBowl:VaultAPI:1.7.1")
+    compileOnly("de.varilx:base-api:1.1.0")
 
     annotationProcessor("org.projectlombok:lombok:1.18.38")
     testImplementation("org.projectlombok:lombok:1.18.38")
@@ -64,7 +64,7 @@ processResources {
 
 tasks {
     runServer {
-        minecraftVersion("1.21.3")
+        minecraftVersion("1.21.5")
 
         downloadPlugins {
             url("https://dev.bukkit.org/projects/vault/files/latest")
@@ -74,4 +74,7 @@ tasks {
 
 shadowJar {
     archiveFileName.set("VEconomy-$project_version" + ".jar")
+    // Optional: Relocate Vault, um Konflikte zu vermeiden
+    relocate 'net.milkbowl.vault', 'de.varilx.shaded.vault'
 }
+
