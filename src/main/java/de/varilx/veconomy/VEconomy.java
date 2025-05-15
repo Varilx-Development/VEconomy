@@ -14,6 +14,8 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 import net.milkbowl.vault.economy.Economy;
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.ServicePriority;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -26,6 +28,8 @@ import java.util.UUID;
 public final class VEconomy extends JavaPlugin {
 
     Service databaseService;
+    Economy economy;
+
 
     @Override
     public void onEnable() {
@@ -34,6 +38,11 @@ public final class VEconomy extends JavaPlugin {
         initializeDatabaseService();
         registerListener();
         registerCommands();
+        if (!setupEconomy()) {
+            getLogger().severe("Vault not found! Disabling plugin.");
+            getServer().getPluginManager().disablePlugin(this);
+            return;
+        }
         registerProvider();
     }
 
@@ -60,6 +69,11 @@ public final class VEconomy extends JavaPlugin {
 
     private void registerProvider() {
         getServer().getServicesManager().register(Economy.class, new CustomEconomy(this), this, ServicePriority.Highest);
+        economy = getServer().getServicesManager().getRegistration(Economy.class).getProvider();
+        getLogger().info("Economy provider registered: " + economy.getName());
     }
 
+    private boolean setupEconomy() {
+        return getServer().getPluginManager().getPlugin("Vault") != null;
+    }
 }

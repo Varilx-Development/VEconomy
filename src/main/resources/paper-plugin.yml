@@ -5,3 +5,9 @@ api-version: '1.21'
 loader: de.varilx.veconomy.loader.VEconomyLoader
 author: ShadowDev1929
 website: https://dev.varilx.de
+dependencies:
+  server:
+    Vault:
+      required: true
+      load: BEFORE
+      join-classpath: true

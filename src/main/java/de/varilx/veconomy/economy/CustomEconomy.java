@@ -29,7 +29,7 @@ public class CustomEconomy implements Economy {
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return plugin.isEnabled();
     }
 
     @Override
@@ -44,12 +44,12 @@ public class CustomEconomy implements Economy {
 
     @Override
     public int fractionalDigits() {
-        return -1;
+        return 2;
     }
 
     @Override
     public String format(double v) {
-        return "";
+        return String.format("%.2f", v);
     }
 
     @Override
@@ -78,7 +78,7 @@ public class CustomEconomy implements Economy {
 
     @Override
     public boolean hasAccount(String s, String s1) {
-        return false;
+        return true;
     }
 
     @SneakyThrows
