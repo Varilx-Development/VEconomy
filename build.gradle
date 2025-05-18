@@ -28,7 +28,7 @@ dependencies {
     compileOnly("io.papermc.paper:paper-api:${paper_version}")
     compileOnly("org.projectlombok:lombok:1.18.38")
     implementation("net.milkbowl.vault:VaultUnlockedAPI:2.9")
-    compileOnly("de.varilx:base-api:1.1.0")
+    compileOnly("de.varilx:base-api:1.3.3")
 
     annotationProcessor("org.projectlombok:lombok:1.18.38")
     testImplementation("org.projectlombok:lombok:1.18.38")
