@@ -1,7 +1,0 @@
-name: VEconomy
-version: '1.0-SNAPSHOT'
-main: de.varilx.veconomy.VEconomy
-api-version: '1.21'
-author: ShadowDev1929
-website: https://dev.varilx.de
-load: STARTUP

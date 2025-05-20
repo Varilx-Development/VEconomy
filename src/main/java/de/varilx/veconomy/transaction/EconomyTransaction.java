@@ -1,6 +1,5 @@
 package de.varilx.veconomy.transaction;
 
-import de.varilx.database.id.MongoId;
 import de.varilx.veconomy.transaction.type.TransactionType;
 import de.varilx.veconomy.user.EconomyUser;
 import jakarta.persistence.Entity;
@@ -29,7 +28,6 @@ import java.util.UUID;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class EconomyTransaction {
 
-    @MongoId
     @jakarta.persistence.Id
     @GeneratedValue(strategy = GenerationType.UUID)
     UUID transactionId;
