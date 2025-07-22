@@ -1,7 +1,6 @@
 package de.varilx.veconomy.user;
 
 
-import de.varilx.database.id.MongoId;
 import de.varilx.veconomy.transaction.EconomyTransaction;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -30,7 +29,6 @@ import java.util.UUID;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class EconomyUser {
 
-    @MongoId
     @jakarta.persistence.Id
     UUID uniqueId;
 

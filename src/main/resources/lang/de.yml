@@ -21,6 +21,7 @@ command_money_pay_self: "<prefix><red>Du kannst kein Geld an dich selbst überwe
 command_money_pay_not_enough_money: "<prefix><red>Du hast nicht genügend Geld!"
 command_money_pay_success: "<prefix>Du hast <green><receiver> <yellow><amount> <currency_name><gray> überwiesen!"
 command_money_pay_success_receiver: "<prefix>Der Spieler <green><sender><gray> hat dir <yellow><amount> <currency_name> <gray>überwiesen!"
+command_money_usage_pay: "<prefix>Nutze<dark_gray>: <yellow>/money pay <dark_gray><<yellow>Player<dark_gray>> <<yellow>Amount<dark_gray>>."
 
 command_moneyadmin_reset_success: "<prefix>Erfolgreich das Geld von <yellow><username> <gray>zurückgesetzt."
 command_moneyadmin_add_success: "<prefix>Erfolgreich dem Spieler <yellow> <balance> <currency_name> <gray>hinzugefügt."
@@ -92,3 +93,7 @@ Commands:
       - "<prefix>Nutze <yellow>/moneyadmin set <dark_gray><<yellow>Player<dark_gray>> <<yellow>Amount<dark_gray>>."
       - "<prefix>Nutze <yellow>/moneyadmin reset <dark_gray><<yellow>Player<dark_gray>.>"
       - "<prefix>Nutze <yellow>/moneyadmin transactions <dark_gray><<yellow>Player<dark_gray>>."
+  Pay:
+    Name: "pay"
+    Permission: "veconomy.pay"
+
